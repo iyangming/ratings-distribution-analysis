@@ -19,10 +19,10 @@ def raw(fn, query):
                 writer.writerow([row[0], row[1], row[2], row[3], row[4]])
 
 def raw_ml3():
-    raw("raw_ml3.csv", "SELECT * FROM ML3_mirror.user_rating_pairs where source!='ML4'")
+    raw("raw_ml3.csv", "SELECT * FROM ML3_mirror.user_rating_pairs where source!='ML4' and rating > 0")
 
 def raw_ml4():
-    raw("raw_ml4.csv", "SELECT * FROM ML3_mirror.user_rating_pairs where source='ML4'")
+    raw("raw_ml4.csv", "SELECT * FROM ML3_mirror.user_rating_pairs where source='ML4' and rating > 0")
 
 if __name__ == "__main__":
     raw_ml3()
